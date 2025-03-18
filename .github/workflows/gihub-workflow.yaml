@@ -1,13 +1,44 @@
-# ll
-name: workflow-update
-on: [pull_request]
+name: GHA Workflow
+
+on:
+  push:
+    branches:
+      - "main"
+
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: compile
+        run: echo "compile started..."
+
+      - name: produce-binary
+        run: sleep 10
+
+      - name: push-binary
+        run: echo "binary pushing..."
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build]   # Depends on 'build' job
+    steps:
+      - name: Run tests
+        run: echo "tests running..."
+
+      - name: Collect test results
+        run: sleep 20
+
+      - name: Publish test results
+        run: echo "test results published..."
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test]   # Depends on both 'build' and 'test' jobs
+    steps:
+      - name: prepare-deployment
+        run: sleep 15
+      - name: deploy app
+        run: echo "Deploying..."
+
       
