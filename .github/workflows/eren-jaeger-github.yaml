@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: compile
         run: echo "compile started..."
 
@@ -17,7 +17,7 @@ jobs:
 
       # - name: push-binary
       #   run: echo "binary pushing..."
- 
+  
   test:
     runs-on: ubuntu-latest
     needs: [build]   # Depends on 'build' job
