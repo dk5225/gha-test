@@ -17,6 +17,20 @@ jobs:
 
       # - name: push-binary
       #   run: echo "binary pushing..."
+
+
+      # adding publish tests to test gha provider field
+      - name: Run tests
+        run: echo "tests running..."
+      
+      # Add your publish-test-results action here
+      - name: Publish JUnit Test Results
+        uses: cloudbees-io/publish-test-results@v1
+        with:
+          test-type: junit
+          folder-name: ${{ github.workspace }}/publish-test-results/junit/*.xml
+
+      # adding publish tests to test gha provider field
   
   test:
     runs-on: ubuntu-latest
