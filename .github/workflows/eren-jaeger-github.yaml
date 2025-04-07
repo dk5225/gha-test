@@ -26,10 +26,7 @@ jobs:
       # Add your publish-test-results action here
       - name: Publish JUnit Test Results
         uses: cloudbees-io/publish-test-results@v1
-        with:
-          test-type: junit
-          folder-name: ${{ cloudbees.workspace }}/publish-test-results/junit/*.xml
-
+ 
       # adding publish tests to test gha provider field
   
   test:
