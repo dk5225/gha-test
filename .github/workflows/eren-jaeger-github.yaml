@@ -28,7 +28,7 @@ jobs:
         uses: cloudbees-io/publish-test-results@v1
         with:
           test-type: junit
-          folder-name: ${{ github.workspace }}/publish-test-results/junit/*.xml
+          folder-name: ${{ cloudbees.workspace }}/publish-test-results/junit/*.xml
 
       # adding publish tests to test gha provider field
   
