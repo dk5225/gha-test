@@ -1,56 +1,11 @@
-name: GHA Workflow
-   
-on:
-  push:
-    branches:
-      - "main"
- 
+name: Hello World Workflow
+
+on: [push]
+
 jobs:
-  build:
+  say-hello:
     runs-on: ubuntu-latest
-    steps: 
-      - name: compile
-        run: echo "compile started..."
 
-      # - name: produce-binary
-      #   run: sleep 10
-
-      # - name: push-binary
-      #   run: echo "binary pushing..."
-
-
-      # adding publish tests to test gha provider field
-      - name: Run tests
-        run: echo "tests running..."
-      
-      # Add your publish-test-results action here
-      - name: Publish JUnit Test Results
-        uses: cloudbees-io/publish-test-results@v1
- 
-      # adding publish tests to test gha provider field
-  
-  test:
-    runs-on: ubuntu-latest
-    needs: [build]   # Depends on 'build' job
     steps:
-      - name: Run tests
-        run: echo "tests running..."
-
-  #     - name: Collect test results
-  #       run: sleep 20
-
-  #     - name: Publish test results
-  #       run: echo "test results published..."
- 
-  
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build, test]   # Depends on both 'build' and 'test' jobs
-    steps:
-      - name: prepare-deployment
-        run: sleep 15
-      - name: deploy app
-        run: echo "Deploying..."
-   
-       
-  
+      - name: Say Hello
+        run: echo "Hello, World!"
