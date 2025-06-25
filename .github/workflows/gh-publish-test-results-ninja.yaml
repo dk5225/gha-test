@@ -3,8 +3,8 @@ name: Publish Test Result To PreProd
 on: [push]
 
 permissions:
-  contents: write 
-  packages: write
+  id-token: write 
+  contents: read
   
 jobs:
   build:
@@ -44,11 +44,10 @@ jobs:
       #     results-path: test_data/testng/report.xml
       #     cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
       - name: GO-Test
-        uses: cloudbees-io-gha/publish-test-results@v1
+        uses: cloudbees-io-gha/publish-test-results@v2
         with:
           test-type: go
           results-path: test_data/go/report2.xml
-          cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
       # - name: ProdPerfect-Test
       #   uses: cloudbees-io-gha/publish-test-results@v1
       #   with:
