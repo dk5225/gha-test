@@ -1,7 +1,6 @@
 name: PREPROD - Build and Publish Artifact
  
-on:
-  workflow_dispatch:
+on: [push]
 
 permissions:
   id-token: write 
