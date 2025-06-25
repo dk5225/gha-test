@@ -36,7 +36,6 @@ jobs:
       #     test-type: junit
       #     results-path: test_data/junit/report*.xml
       #     cloudbees-url: "https://api.cloudbees.io"
-      #     cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
       # - name: TestNG
       #   uses: cloudbees-io-gha/publish-test-results@v1
       #   with:
@@ -48,6 +47,7 @@ jobs:
         with:
           test-type: go
           results-path: test_data/go/report2.xml
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
       # - name: ProdPerfect-Test
       #   uses: cloudbees-io-gha/publish-test-results@v1
       #   with:
