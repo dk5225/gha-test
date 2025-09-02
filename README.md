@@ -1,3 +1,3 @@
-# gha-test 
+# sonarqube-test 
 
-Use this repo for populating github data on PREPROD
+Use this branch for populating sonarqube findings data on PROD

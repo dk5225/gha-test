@@ -1,0 +1,28 @@
+name: sonar-hybrid-plugin
+kind: workflow
+apiVersion: automation.cloudbees.io/v1alpha1
+
+on:
+  push:
+    branches:
+      - sonar-explicit-findings-test
+
+permissions:
+  scm-token-own: read
+  scm-token-org: read
+  id-token: write
+
+jobs:
+  sonar-hybrid-scan:
+    steps:        
+      - name: checkout Source Code
+        uses: cloudbees-io/checkout@v1
+
+      - name: Setup sonarqube explicit scanner
+        uses: cloudbees-io/sonarqube-plugin@v1
+        with:
+          url: 'https://sonarqube.saas-preprod.beescloud.com'
+          username: ${{ secrets.SONARQUBE_USERNAME }}
+          password: ${{ secrets.SONARQUBE_PASSWORD }}
+          compile_command_json_path: template-security-plugin/compile_commands.json 
+
