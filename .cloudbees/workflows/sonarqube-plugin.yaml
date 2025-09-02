@@ -5,7 +5,7 @@ apiVersion: automation.cloudbees.io/v1alpha1
 on:
   push:
     branches:
-      - sonar-explicit-findings-test
+      - sonarqube-branch
 
 permissions:
   scm-token-own: read
