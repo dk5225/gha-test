@@ -1,11 +1,23 @@
-name: Hello World Workflow
+name: gh-hw-ninja
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened 
+      - edited
+      - reopened 
+      - synchronize 
+      - ready_for_review
+
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Say Hello
         run: echo "Hello, World!"
